@@ -12,6 +12,7 @@ public class TransformMover : MonoBehaviour
     /// How fast to move.
     /// </summary>
     [Tooltip("How fast to move.")]
+    [Min(float.Epsilon)]
     [SerializeField]
     private float moveSpeed = 1;
 
@@ -19,6 +20,7 @@ public class TransformMover : MonoBehaviour
     /// How fast to turn with the mouse.
     /// </summary>
     [Tooltip("How fast to turn with the mouse.")]
+    [Min(float.Epsilon)]
     [SerializeField]
     private float lookSpeed = 1;
 

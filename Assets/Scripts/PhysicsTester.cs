@@ -12,6 +12,7 @@ public class PhysicsTester : MonoBehaviour
     /// How much for to add to the object each physics step.
     /// </summary>
     [Tooltip("How much for to add to the object.")]
+    [Min(float.Epsilon)]
     [SerializeField]
     private float force = 1;
     
@@ -25,6 +26,7 @@ public class PhysicsTester : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        // Get the rigidbody that we will be using.
         _rb = GetComponent<Rigidbody>();
     }
 

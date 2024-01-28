@@ -13,6 +13,7 @@ public class Test : MonoBehaviour
     /// How fast to move the object.
     /// </summary>
     [Tooltip("How fast to move the object.")]
+    [Min(float.Epsilon)]
     [SerializeField]
     private float speed = 1;
     

@@ -11,5 +11,6 @@ public class Health : MonoBehaviour
     /// The current health.
     /// </summary>
     [Tooltip("The current health.")]
+    [Min(0)]
     public int value = 3;
 }
