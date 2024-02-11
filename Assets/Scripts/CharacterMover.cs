@@ -46,6 +46,20 @@ public class CharacterMover : MonoBehaviour
     [Tooltip("The terminal velocity of the character.")]
     [SerializeField]
     private float terminalVelocity = -1;
+
+    /// <summary>
+    /// The position to teleport the player to.
+    /// </summary>
+    [Tooltip("The position to teleport the player to.")]
+    [SerializeField]
+    private Vector3 teleportPosition = new(0, 0.5f, 0);
+
+    /// <summary>
+    /// The rotation to teleport the player to.
+    /// </summary>
+    [Tooltip("The rotation to teleport the player to.")]
+    [SerializeField]
+    private Vector3 teleportRotation = Vector3.zero;
     
     /// <summary>
     /// The character controller to move.
@@ -101,6 +115,22 @@ public class CharacterMover : MonoBehaviour
 
         // Cache the transform for performance since otherwise we would be accessing it multiple times.
         Transform t = transform;
+        
+        // Teleport the player when R is pressed.
+        if (Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            // Disable to character controller so we can move the player via the transform.
+            _controller.enabled = false;
+            
+            // Set the position.
+            t.position = teleportPosition;
+            
+            // Set the rotation.
+            t.eulerAngles = teleportRotation;
+            
+            // Enable the character controller so it can move again.
+            _controller.enabled = true;
+        }
         
         // Rotate on the y (green) axis for turning.
         t.Rotate(0, look * lookSpeed * Time.deltaTime, 0);
