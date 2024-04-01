@@ -7,6 +7,9 @@
 /// </summary>
 public class TurnRandomWalk : RandomWalkBase
 {
+    /// <summary>
+    /// The chance to turn the direction the random walk is in.
+    /// </summary>
     [Tooltip("The chance to turn the direction the random walk is in.")]
     [Range(0, 1)]
     [SerializeField]
