@@ -164,9 +164,9 @@ public abstract class RandomWalkBase : MonoBehaviour
         Camera cam = Camera.main;
         if (cam == null)
         {
-            cam = FindObjectOfType<Camera>();
+            cam = FindAnyObjectByType<Camera>();
         }
-
+        
         // If there is a camera, make sure it can see the entire level which has been rendered
         if (cam != null)
         {
@@ -177,7 +177,7 @@ public abstract class RandomWalkBase : MonoBehaviour
             cam.orthographic = true;
             cam.orthographicSize = (xLargest ? used.x : used.y) / 2f + 1.5f;
         }
-
+        
         // Disable this component as it is done being used.
         enabled = false;
     }

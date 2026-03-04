@@ -28,7 +28,7 @@ public static class Generics
     /// <returns>The nearest instance of a component or null if there are no instances.</returns>
     public static T Closest<T>(Vector3 position) where T : Component
     {
-        T[] instances = Object.FindObjectsOfType<T>();
+        T[] instances = Object.FindObjectsByType<T>(sortMode: FindObjectsSortMode.None);
         return instances.OrderBy(x => Vector3.Distance(position, x.transform.position)).FirstOrDefault();
     }
 }

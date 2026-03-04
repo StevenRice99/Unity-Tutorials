@@ -40,9 +40,9 @@ public class SimpleArtificialIntelligence : MonoBehaviour
         {
             return;
         }
-
+        
         // Find the player.
-        TopDownCharacterGlobal player = FindObjectOfType<TopDownCharacterGlobal>();
+        TopDownCharacterGlobal player = FindAnyObjectByType<TopDownCharacterGlobal>();
         
         // Ensure there was a player that was found.
         if (player != null)
